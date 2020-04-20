@@ -4,12 +4,12 @@ let UserSchema = new mongoose.Schema ({
   name: {
     type: String,
     required: false,
-    default: "null"
+    default: 'null'
   },
   email: {
     type: String,
     required: false,
-    default: "null"
+    default: 'null'
   },
   username: {
     type: String,
@@ -21,12 +21,12 @@ let UserSchema = new mongoose.Schema ({
   codeforces: {
     type: String,
     required: false,
-    default: "null"
+    default: 'null'
   },
   codechef: {
     type: String,
     required: false,
-    default: "null"
+    default: 'null'
   },
   submissions: {
     type: [Object],

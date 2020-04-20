@@ -1,6 +1,6 @@
 const express = require('express');
-const { PORT, ENV } = require('./util/dotenv');
-const connectDB = require('./db/connect');
+const { PORT } = require('./util');
+const { connect } = require('./db');
 const cors = require('cors');
 
 // Initialize express App
@@ -12,6 +12,9 @@ app.use(cors());
 // JSON Body Parser Middleware
 app.use(express.json());
 
+/**
+ * Main function used to start the Aplication
+ */
 async function main() {
   // const AllowedOrigins = ['http://localhost:4000'];
 
@@ -27,13 +30,13 @@ async function main() {
   // }));
 
   // Create Connection to DB
-  await connectDB();
+  await connect();
 
   // API routes
   app.use('/api', require('./api/router'));
 
   app.listen(PORT, () => {
-    console.log(`Listening to port: ${PORT}`)
+    console.log(`Listening to port: ${PORT}`);
   });
 }
 

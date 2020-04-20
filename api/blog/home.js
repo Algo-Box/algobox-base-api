@@ -1,12 +1,18 @@
-const Blog = require('../../db/models/Blog');
-const { writeResponse, invoker } = require('../../util/util');
+const { writeResponse } = require('../../util');
+const { getAll } = require('../../services/Blog');
 
-const home = async (req, res) => {
-  const [blogs, err] = await invoker(Blog.find({}));
-  if(err) return writeResponse(null, err, res);
-  writeResponse({
-    blogs: blogs,
-  }, null, res);
+/**
+ * Returns all available blogs
+ * @param {Object} req request Object
+ * @param {Object} res resonse Object
+ */
+async function home(req, res) {
+  try {
+    const result = await getAll();
+    writeResponse(result, null, res);
+  } catch (e) {
+    writeResponse(null, e, res);
+  }
 }
 
 module.exports = home;

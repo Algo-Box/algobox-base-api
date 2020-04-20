@@ -1,3 +1,2 @@
-# template-node
-
-node.js project template
+# AlgoBox Backend
+Backend Code for primary AlgoBox

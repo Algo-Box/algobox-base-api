@@ -1,7 +1,10 @@
-const { MongoURI } = require('../util/dotenv');
+const { MongoURI } = require('../util');
 const mongoose = require('mongoose');
 
-module.exports = async () => {
+/**
+ * Used to connect to DB
+ */
+async function connect() {
   try {
     // To remove Deprecation Warnings
     mongoose.Promise = global.Promise;
@@ -15,3 +18,5 @@ module.exports = async () => {
     process.exit(1);
   }
 }
+
+module.exports = connect;

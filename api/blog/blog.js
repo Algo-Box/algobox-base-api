@@ -1,13 +1,19 @@
-const Blog = require('../../db/models/Blog');
-const { writeResponse, invoker } = require('../../util/util');
+const { writeResponse } = require('../../util');
+const { getBySlug } = require('../../services/Blog');
 
-const blog = async (req, res) => {
-  const [blog, err] = await invoker(Blog.find({slug: req.params.slug}));
-  if(err) return writeResponse(null, err, res);
-  if(blog.length === 0) return writeResponse(null, 'noSuchBlog', res);
-  writeResponse({
-    blog: blog,
-  }, null, res);
+/**
+ * fetch blog by slug
+ * @param {Object} req request Object
+ * @param {Object} res response bject
+ */
+async function blog(req, res) {
+  try {
+    const blog = await getBySlug(req.params.slug);
+    if(!blog) throw new Error('noSuchBlog');
+    writeResponse({blog: blog}, null, res);
+  } catch (e) {
+    writeResponse(null, e, res);
+  }
 }
 
 module.exports = blog;
