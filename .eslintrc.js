@@ -6,7 +6,10 @@ module.exports = exports = {
         "browser": false,
         "jest": true
     },
-    "extends": "eslint:recommended",
+    "extends":[
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended"
+    ],
     "parserOptions": {
         "ecmaVersion": 2020,
         "sourceType": "module",
