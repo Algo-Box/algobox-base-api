@@ -9,7 +9,8 @@ export async function signup(req: Request, res: Response) {
     const doc = await createUser(req.body);
     const user: UserModel = doc.toObject();
     const userToken = await createToken({
-      username: user.username
+      username: user.username,
+      password: user.password
     });
     writeResponse({userToken: userToken}, null, res);
   } catch (e) {

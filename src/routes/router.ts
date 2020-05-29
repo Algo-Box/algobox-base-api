@@ -5,6 +5,6 @@ const router = Router();
 
 router.use('/api', require('./api/router'));
 
-router.get('*', Error);
+router.get('*', Error());
 
 module.exports = router;

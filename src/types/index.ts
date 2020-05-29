@@ -16,6 +16,6 @@ export interface BlogModel {
   title: string,
   slug: string,
   author: string,
-  tags: Array<string>,
+  tags: Array<String>,
   Body: string
 }

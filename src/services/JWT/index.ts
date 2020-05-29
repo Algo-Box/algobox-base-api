@@ -3,13 +3,12 @@ import { JWTUser } from '../../types';
 
 /**
  * Used to Create JWT
- * @param payload The Payload
- * @param retain wether to retain the key for frontend
- * @returns {Promise<string>} the Token
+ * @param {Object} payload The Payload
+ * @returns {Promise<String>} the Token
  */
-export async function createToken(payload: any): Promise<string> {
+export async function createToken(payload: any): Promise<String> {
   return jwt
-    .sign(payload, process.env.JSTsecret!, {
+    .sign(payload, process.env.JWTsecret!, {
       algorithm: 'HS512',
       expiresIn: '7d'
     });
@@ -18,7 +17,7 @@ export async function createToken(payload: any): Promise<string> {
 /**
  * used to decode the token 
  * @param {string} token The Token
- * @returns {Promise<User>} The Decoded Payload
+ * @returns {Promise<JWTUser>} The Decoded Payload
  */
 export async function verifyToken(token: string): Promise<JWTUser> {
   return <JWTUser> jwt

@@ -8,9 +8,9 @@ export async function login(req: Request, res: Response) {
   const { username, password }: JWTUser = req.body;
   try {
     const user: JWTUser | undefined = await authenticate(username, password);
-    if(user === undefined) throw new Error("user Not Found");
+    if(user === undefined) throw new Error("User Not Found");
     const token = await createToken({
-      username: user.username 
+      username: user.username, 
     });
     writeResponse({userToken: token}, null, res);
   } catch (e) {

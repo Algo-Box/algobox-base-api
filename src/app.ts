@@ -18,7 +18,7 @@ async function Main() {
   App.use(cors());
 
   /** Initialize Routes */
-  App.use("/", require('./routes/router'));
+  App.use('/', require('./routes/router'));
 
   /** Await DB Connection */
   await connect();

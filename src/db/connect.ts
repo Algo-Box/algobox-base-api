@@ -7,6 +7,8 @@ export async function connect() {
     mongoose.set('useNewUrlParser', true);
     
     await mongoose.connect(process.env.MongoURI!);
+
+    console.log(`Connected to ${process.env.MongoURI!}`)
   } catch (e) {
     console.error(e);
     process.exit(1);

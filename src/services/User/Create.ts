@@ -1,6 +1,7 @@
 import { UserSchema } from "../../db/models";
 import { UserModel } from "../../types";
 import { hash } from 'bcrypt';
+import { queryOne } from "./Query";
 
 /**
  * used to create a user
@@ -14,11 +15,12 @@ export async function createUser({
   codechef,
   codeforces
 } : UserModel) {
+  if(await queryOne('username', username)) throw new Error("User Already Exists");
   const getHash = await hash(password, 14);
   const user = new UserSchema({
     name: name,
     username: username,
-    password: hash,
+    password: getHash,
     codeforces: codeforces,
     codechef: codechef,
     email: email
