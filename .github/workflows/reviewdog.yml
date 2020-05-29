@@ -1,0 +1,14 @@
+- name: Run eslint with reviewdog
+  uses: reviewdog/action-eslint@v1.0.0
+  with:
+    # GITHUB_TOKEN.
+    github_token: 
+    # Report level for reviewdog [info,warning,error]
+    level: # optional, default is error
+    # Reporter of reviewdog command [github-pr-check,github-pr-review].
+Default is github-pr-check.
+github-pr-review can use Markdown and add a link to rule page in reviewdog reports.
+
+    reporter: # optional, default is github-pr-check
+    # flags and args of eslint command. Default: '.'
+    eslint_flags: # optional, default is .
