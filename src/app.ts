@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
-import { Config } from './config/config';
-import { Logger } from './utils/logger';
+import { Config } from './config';
+import { Logger } from './utils';
+import { connect } from './db';
 
 async function Main() {
 
@@ -18,6 +19,9 @@ async function Main() {
 
   /** Initialize Routes */
   App.use("/", require('./routes/router'));
+
+  /** Await DB Connection */
+  await connect();
 
   /** Listen to Port */
   App.listen(process.env.PORT, () => {
