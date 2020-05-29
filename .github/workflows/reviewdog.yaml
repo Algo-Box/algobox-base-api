@@ -6,8 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: npm install
+      - name: npm install --no-shrinkwrap eslint
         run: npm install --no-shrinkwrap eslint
+      - name: npm install @typescript-eslint/eslint-plugin@latest --save-dev
         run: npm install @typescript-eslint/eslint-plugin@latest --save-dev
       - name: eslint
         uses: reviewdog/action-eslint@v1
