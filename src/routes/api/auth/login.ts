@@ -4,7 +4,7 @@ import { authenticate } from '../../../services/User';
 import { createToken } from '../../../services/JWT';
 import { writeResponse } from '../../../utils';
 
-export async function login(req: Request, res: Response) {
+export default async function login(req: Request, res: Response) {
   const { username, password }: JWTUser = req.body;
   try {
     const user: JWTUser | undefined = await authenticate(username, password);

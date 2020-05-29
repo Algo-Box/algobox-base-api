@@ -4,7 +4,7 @@ import { createUser } from '../../../services/User';
 import { createToken } from '../../../services/JWT';
 import { UserModel } from '../../../types';
 
-export async function signup(req: Request, res: Response) {
+export default async function signup(req: Request, res: Response) {
   try {
     const doc = await createUser(req.body);
     const user: UserModel = doc.toObject();

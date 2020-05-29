@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { login } from './login';
-import { loginToken } from './loginToken';
-import { signup } from './signup';
+import login from './login';
+import loginToken from './loginToken';
+import signup from './signup';
 
 const router = Router();
 
