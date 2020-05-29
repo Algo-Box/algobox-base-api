@@ -16,7 +16,7 @@ export default async function loginToken(req: Request, res: Response) {
     if(!token) throw new Error("No Token Provided");
     const { username }: JWTUser = await verifyToken(token);
     if(!await queryOne(UserSchema, {username: username})) 
-      throw new Error("Invali Token");
+      throw new Error("Invalid Token");
     writeResponse({'verified': true}, null, res);
   } catch(e) {
     writeResponse(null, e, res);
