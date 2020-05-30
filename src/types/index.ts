@@ -1,7 +1,7 @@
 export interface JWTUser {
   username: string,
   password: string
-};
+}
 
 export interface UserModel {
   name: string,
@@ -10,7 +10,7 @@ export interface UserModel {
   password: string,
   codeforces: string,
   codechef: string,
-};
+}
 
 export interface BlogModel {
   title: string,
