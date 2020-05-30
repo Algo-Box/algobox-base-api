@@ -3,24 +3,24 @@ import { Schema, model } from 'mongoose';
 const BlogSchemaDef = new Schema({
   title: {
     type: String,
-    required: [true]
+    required: [ true ]
   },
   slug: {
     type: String,
-    required: [true]
+    required: [ true ]
   },
   author: {
     type: String,
-    required: [true, 'User is mandatory']
+    required: [ true, 'User is mandatory' ]
   },
   tags: {
-    type: [String],
-    default: ['Algorithm']
+    type: [ String ],
+    default: [ 'Algorithm' ]
   },
   Body: {
     type: String,
-    required: [false, 'Body is mandatory'],
-    default: ""
+    required: [ false, 'Body is mandatory' ],
+    default: ''
   },
   created: {
     type: Date,

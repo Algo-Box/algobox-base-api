@@ -1,7 +1,7 @@
-import { UserSchema } from "../../db/models";
+import { UserSchema } from '../../db/models';
 import { compare } from 'bcrypt';
-import { UserModel } from "../../types";
-import { queryOne } from "../../db/functions";
+import { UserModel } from '../../types';
+import { queryOne } from '../../db/functions';
 
 /**
  * Authenticates a user
@@ -9,16 +9,16 @@ import { queryOne } from "../../db/functions";
  * @param {string} password The Password
  */
 export async function authenticate(
-  username: string, 
+  username: string,
   password: string
 ) : Promise<UserModel | undefined> {
-  try {
-    const value = await queryOne(UserSchema, {username: username});
-    if(value === null) throw new Error("User Not Found");
-    const user: UserModel = value.toObject();
-    if(await compare(password, user.password)) return user;
-    else throw new Error("Password Mismatch");
-  } catch (e) {
-    throw e;
+  const value = await queryOne(UserSchema, { username: username });
+  if (value === null) {
+    throw new Error('User Not Found');
   }
-} 
+  const user: UserModel = value.toObject();
+  if (await compare(password, user.password)) {
+    return user;
+  }
+  throw new Error('Password Mismatch');
+}

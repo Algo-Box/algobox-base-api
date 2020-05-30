@@ -1,16 +1,15 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+import config from '../config';
 
+/**
+ * connection to database
+ */
 export async function connect() {
-  try {
-    mongoose.Promise = global.Promise;
-    mongoose.set('useUnifiedTopology', true);
-    mongoose.set('useNewUrlParser', true);
-    
-    await mongoose.connect(process.env.MongoURI!);
+  mongoose.Promise = global.Promise;
+  mongoose.set('useUnifiedTopology', true);
+  mongoose.set('useNewUrlParser', true);
 
-    console.log(`Connected to ${process.env.MongoURI!}`)
-  } catch (e) {
-    console.error(e);
-    process.exit(1);
-  }
+  await mongoose.connect(config.ENV.MongoURI);
+
+  console.log(`Connected to ${config.ENV.MongoURI}`);
 }

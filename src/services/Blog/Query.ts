@@ -1,5 +1,5 @@
-import { queryAll } from "../../db/functions";
-import { BlogSchema } from "../../db/models";
+import { queryAll } from '../../db/functions';
+import { BlogSchema } from '../../db/models';
 
 /**
  * Gets All Blogs
@@ -10,10 +10,10 @@ export async function getAll() {
 
 /**
  * Gets Blogs with some Common Slug
- * @param {String} slug 
+ * @param {String} slug this is the slug
  */
 export async function getBySlug(slug: string) {
-  return queryAll(BlogSchema, {slug: slug});
+  return queryAll(BlogSchema, { slug: slug });
 }
 
 /**

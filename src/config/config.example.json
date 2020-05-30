@@ -1,0 +1,23 @@
+{
+  "HttpCodes": {
+    "OK": 200,
+    "Accepted": 202,
+    "NoContent": 204,
+    "BadRequest": 400,
+    "Unauthorized": 401,
+    "Forbidden": 403,
+    "Conflict": 409,
+    "InternalServerError": 500
+   },
+
+   "ENV": {
+    "PORT": "3000",
+    "NODE_ENV": "ENV",
+    "MongoURI": "URI",
+    "JWTsecret": "Secret"
+   },
+
+   "constants": {
+      "hashCount": -1
+   }
+}

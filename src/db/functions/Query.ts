@@ -1,9 +1,9 @@
-import { Model, Document } from "mongoose";
+import { Model, Document } from 'mongoose';
 
 /**
  * gets One Document from DB
  * @param {Model} schema the schema on which to query
- * @param {Object} Query the query 
+ * @param {Object} Query the query
  */
 export async function queryOne(
   schema: Model<Document, {}>,
@@ -15,7 +15,7 @@ export async function queryOne(
 /**
  * gets All Documents from DB
  * @param {Model} schema the schema on which to query
- * @param {Object} Query the query 
+ * @param {Object} Query the query
  */
 export async function queryAll(
   schema: Model<Document, {}>,
