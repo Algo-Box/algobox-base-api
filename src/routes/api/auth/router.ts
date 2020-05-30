@@ -3,6 +3,7 @@ import login from './login';
 import loginToken from './loginToken';
 import signup from './signup';
 
+// eslint-disable-next-line new-cap
 const router = Router();
 
 router.post('/loginToken', loginToken);
